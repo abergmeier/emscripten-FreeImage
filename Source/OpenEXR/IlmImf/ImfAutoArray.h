@@ -44,6 +44,7 @@
 //
 //-----------------------------------------------------------------------------
 
+#include <cstring>
 #include "OpenEXRConfig.h"
 
 namespace Imf {
@@ -57,7 +58,7 @@ namespace Imf {
     {
       public:
 
-	 AutoArray (): _data (new T [size]) { memset(_data, 0, size*sizeof(T)); }
+	 AutoArray (): _data (new T [size]) { std::memset(_data, 0, size*sizeof(T)); }
 	~AutoArray () {delete [] _data;}
 
 	operator T * ()			{return _data;}
