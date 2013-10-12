@@ -4,6 +4,9 @@
 OS = $(shell uname)
 MAKEFILE = gnu
 
+ifdef EMSCRIPTEN
+    MAKEFILE = em
+else
 ifeq ($(OS), Darwin)
     MAKEFILE = osx
 endif
@@ -16,6 +19,7 @@ endif
 ifeq ($(OS), windows32)
     MAKEFILE = mingw
 endif
+endif # EMSCRIPTEN
 
 default:
 	$(MAKE) -f Makefile.$(MAKEFILE) 
