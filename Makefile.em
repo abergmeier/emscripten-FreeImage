@@ -11,7 +11,7 @@ INSTALLDIR ?= $(DESTDIR)/lib
 # Converts cr/lf to just lf
 DOS2UNIX = dos2unix
 
-LIBRARIES = -lstdc++
+LIBRARIES = -lstdc++ -lz
 
 OPT ?= -O2
 
