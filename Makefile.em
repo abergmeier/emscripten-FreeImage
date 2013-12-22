@@ -65,7 +65,7 @@ install:
 	ln -sf $(SHAREDLIB) $(INSTALLDIR)/$(VERLIBNAME)
 	ln -sf $(VERLIBNAME) $(INSTALLDIR)/$(LIBNAME)	
 	mkdir -p $(INSTALLDIR)/pkgconfig
-	printf "prefix=%s\nexec_prefix=\$${prefix}\nlibdir=\$${exec_prefix}/lib\nsharedlibdir=\$${libdir}\nincludedir=\$${prefix}/include\nName: FreeImage\nDescription: Image manipulation library\nVersion: %s\nLibs: -L\$${libdir} -L\$${sharedlibdir} -lfreeimage\nCflags: -I\$${includedir}" "$(DESTDIR)" "$(VER_MAJOR).$(VER_MINOR)" > "$(INSTALLDIR)/pkgconfig/freeimage.pc"
+	printf "prefix=%s\nexec_prefix=\$${prefix}\nlibdir=\$${exec_prefix}/lib\nsharedlibdir=\$${libdir}\nincludedir=\$${prefix}/include\nName: FreeImage\nDescription: Image manipulation library\nRequires: zlib >= 1.2.7\nVersion: %s\nLibs: -L\$${libdir} -L\$${sharedlibdir} -lfreeimage\nCflags: -I\$${includedir}" "$(DESTDIR)" "$(VER_MAJOR).$(VER_MINOR)" > "$(INSTALLDIR)/pkgconfig/freeimage.pc"
 #	ldconfig
 
 clean:
